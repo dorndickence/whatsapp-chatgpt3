@@ -8,7 +8,7 @@ export const print = (text: string) => {
 };
 
 export const printIntro = () => {
-  intro(color.bgCyan(color.white(" Whatsapp ChatGPT & DALL-E ")); // Added missing closing parenthesis
+  intro(color.bgCyan(color.white(" Whatsapp ChatGPT & DALL-E "))); // Fixed missing closing parenthesis
   note(
     "A Whatsapp bot that uses OpenAI's ChatGPT and DALL-E to generate text and images from a prompt."
   );
@@ -24,10 +24,10 @@ export const printAuthentication = (
   s.stop("Client is ready!");
 
   if (authMethod === "QRCode") {
-    note(qrOrPhoneNumber, "Scan the QR code below to login to Whatsapp Web.");
+    note(qrOrPhoneNumber + " Scan the QR code below to login to Whatsapp Web."); // Concatenate the message
     s.start("Waiting for QR code to be scanned");
   } else if (authMethod === "PhoneNumber") {
-    note("Use the phone number:", phoneNumber); // Use the defined phone number
+    note("Use the phone number: " + phoneNumber); // Concatenate the message
     s.start("Logging in");
   }
 };
