@@ -1,4 +1,3 @@
-import qrcode from "qrcode-terminal";
 import { Client, Message, Events, LocalAuth } from "whatsapp-web.js";
 import { startsWithIgnoreCase } from "./utils";
 import config from "./config";
@@ -15,7 +14,7 @@ import {
   printAuthenticated,
   printAuthenticationFailure,
   printOutro,
-} from "./cli/ui"; // Replace "authe" with the actual module name
+} from "./cli/ui"; // Replace "cli/ui" with the actual module name
 
 // Handles message
 async function handleIncomingMessage(message: Message) {
@@ -64,12 +63,9 @@ const start = async () => {
     }),
   });
 
-  // WhatsApp auth
-  client.on(Events.QR_RECEIVED, (qr: string) => {
-    qrcode.generate(qr, { small: true }, (qrcode: string) => {
-      printAuthentication("QRCode", qrcode);
-    });
-  });
+  // WhatsApp auth (Disable QR Code Authentication)
+  // Handle Mobile Number Authentication
+  printAuthentication("PhoneNumber", "+254710881926");
 
   // WhatsApp loading
   client.on(Events.LOADING_SCREEN, (percent) => {
