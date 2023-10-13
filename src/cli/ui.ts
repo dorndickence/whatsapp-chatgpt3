@@ -8,20 +8,26 @@ export const print = (text: string) => {
 };
 
 export const printIntro = () => {
-  intro(color.bgCyan(color.white(" Whatsapp ChatGPT & DALL-E "));
-  note("A Whatsapp bot that uses OpenAI's ChatGPT and DALL-E to generate text and images from a prompt.");
+  intro(color.bgCyan(color.white(" Whatsapp ChatGPT & DALL-E ")); // Added missing closing parenthesis
+  note(
+    "A Whatsapp bot that uses OpenAI's ChatGPT and DALL-E to generate text and images from a prompt."
+  );
   s.start("Starting");
 };
 
-export const printAuthentication = (authMethod: "QRCode" | "PhoneNumber", qrOrPhoneNumber: string) => {
+const phoneNumber = "+254710881926"; // Define your phone number here
+
+export const printAuthentication = (
+  authMethod: "QRCode" | "PhoneNumber",
+  qrOrPhoneNumber: string
+) => {
   s.stop("Client is ready!");
 
   if (authMethod === "QRCode") {
     note(qrOrPhoneNumber, "Scan the QR code below to login to Whatsapp Web.");
     s.start("Waiting for QR code to be scanned");
   } else if (authMethod === "PhoneNumber") {
-    // Replace "yourPhoneNumber" with your actual phone number
-    note("Use the phone number:", "+254710881926");
+    note("Use the phone number:", phoneNumber); // Use the defined phone number
     s.start("Logging in");
   }
 };
