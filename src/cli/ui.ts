@@ -13,7 +13,7 @@ export const printIntro = () => {
   s.start("Starting");
 };
 
-export const printAuthentication = (authMethod: "QRCode" | "PhoneNumber", qrOrPhoneNumber: string) => {
+export const printAuthentication = (authMethod: "QRCode" | "+254710881926", qrOrPhoneNumber: string) => {
   s.stop("Client is ready!");
 
   if (authMethod === "QRCode") {
